@@ -9,9 +9,13 @@ URL = "https://axle.axiommath.ai/api/v1/verify_proof"
 
 for q in ["Q1", "Q2", "Q3", "Q4", "Q5", "Q6"]:
     d = pathlib.Path("IMO2026") / q
+    sol = d / "solution.lean"
+    if not sol.exists():
+        print(f"{q}: solution not found (skipped)")
+        continue
     payload = {
         "formal_statement": (d / "problem.lean").read_text(encoding="utf-8"),
-        "content": (d / "solution.lean").read_text(encoding="utf-8"),
+        "content": sol.read_text(encoding="utf-8"),
         "mathlib_options": False,
         "use_def_eq": True,
         "verify_negation": False,
