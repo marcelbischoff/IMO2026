@@ -128,11 +128,11 @@ fidelity:
         with α, β, γ > 0 summing to 1
       - Comment: This is fine: strict convex combinations describe exactly the open triangle interior. That
         the configuration is nondegenerate enough for this to be the intended region is not separately stated.
-    * Inside an angle:
-      - Official statement: K lies inside angle ∠LBA, and L inside angle ∠ACK
-      - Lean translation: `InsideAngle X Y Z P` (vertex Y) as `P - Y = s•(X−Y) + t•(Z−Y)` with `s, t > 0`
-      - Comment: This is fine: the positive-coefficient cone describes the open region of a proper (< 180°)
-        angle. That the configuration removes any reflex-angle ambiguity is not separately stated.
+    * Additional triangle containment:
+      - Official statement: K lies inside triangle ABL, and L inside triangle AKC
+      - Lean translation: `InsideTriangle A B L K` and `InsideTriangle A K C L`
+      - Comment: This is a direct transcription. The solution derives the weaker positive-cone conditions
+        `InsideAngle L B A K` and `InsideAngle A C K L` internally for its coordinate proof.
     * The angles:
       - Official statement: the equalities ∠KBA = ∠ACL, ∠LBK = ∠LNC, ∠LCK = ∠BMK
       - Lean translation: `∠` is `EuclideanGeometry.angle`, the unsigned angle valued in `[0, π]`

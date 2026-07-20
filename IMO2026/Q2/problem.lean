@@ -36,9 +36,9 @@ theorem main_theorem
     -- `K` is inside triangle `BMC`; `L` is inside triangle `BNC`.
     (hK : InsideTriangle B M C K)
     (hL : InsideTriangle B N C L)
-    -- `K` inside angle `∠ L B A`; `L` inside angle `∠ A C K`.
-    (hKangle : InsideAngle L B A K)
-    (hLangle : InsideAngle A C K L)
+    -- `K` is inside triangle `ABL`; `L` is inside triangle `AKC`.
+    (hKABL : InsideTriangle A B L K)
+    (hLAKC : InsideTriangle A K C L)
     -- The three angle equalities.
     (h1 : ∠ K B A = ∠ A C L)
     (h2 : ∠ L B K = ∠ L N C)
